@@ -24,12 +24,11 @@ function printQuestionMarks(num) {
       var value = ob[key];
       // check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+        // if string with spaces, add quotations (Bacon Cheese Burger => 'Bacon Cheese Burger')
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
         }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
+        
         arr.push(key + "=" + value);
       }
     }
@@ -39,15 +38,15 @@ function printQuestionMarks(num) {
   }
 //creating the orm object
 var orm = {
-    selectAll: function(tableInput, column_name) {
-        var queryString = "SELECT * FROM ?? ORDER BY ?? DESC";
-        connection.query(queryString, [tableInput, column_name], function(err, result) {
-            if (err) {
-                throw err;
-            }
-            console.log(result);
+    selectAll: function(tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
         });
-    },
+      },
 
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
