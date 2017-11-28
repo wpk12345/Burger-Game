@@ -1,6 +1,6 @@
-// Import the ORM to create functions that will interact with the database.
+// Import the ORM to create functions that will interact with the database.  This is the model
 var orm = require("../config/orm.js");
-
+//here we create the code that will call the ORM functions using burger specific input for the ORM.
 var burger = {
     all: function(cb) {
         orm.selectAll("burgers", function(res) {
@@ -19,3 +19,4 @@ var burger = {
         });
       }
 } 
+module.exports = burger;

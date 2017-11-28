@@ -1,3 +1,4 @@
+// Here we create the methods that will execute the necessary MySQL commands in the controllers. These are the methods we need to use in order to retrieve and store data in the database.
 var connection = require("./connection.js");
 
 // Helper function for SQL syntax.
@@ -47,7 +48,7 @@ var orm = {
           cb(result);
         });
       },
-
+//this is where we create a new burger and write the necessary sql command.
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
     

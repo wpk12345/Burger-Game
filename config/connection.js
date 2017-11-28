@@ -1,3 +1,5 @@
+//this file creates the connection to mysql(the database)
+
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
