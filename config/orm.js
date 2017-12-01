@@ -1,5 +1,5 @@
 // Here we create the methods that will execute the necessary MySQL commands in the controllers. These are the methods we need to use in order to retrieve and store data in the database.
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -60,12 +60,10 @@ var orm = {
         queryString += ") ";
     
         console.log(queryString);
-    
         connection.query(queryString, vals, function(err, result) {
           if (err) {
             throw err;
           }
-    
           cb(result);
         });
       },
@@ -78,7 +76,7 @@ var orm = {
         queryString += " WHERE ";
         queryString += condition;
     
-        console.log(queryString);
+      console.log(queryString);
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
