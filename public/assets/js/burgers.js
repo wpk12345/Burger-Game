@@ -1,7 +1,7 @@
 $(function() {
-  $("#devourMe").on("click", function(event) {
+  $(".change-devoured").on("click", function(event) {
     var id = $(this).data("id");
-    var newDevour = 1
+    var newDevour = 1;
     console.log(newDevour);
 
    var newDevouredState = {
