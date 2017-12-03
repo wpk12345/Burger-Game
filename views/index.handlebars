@@ -4,7 +4,10 @@
 
 <ul>
   {{#each burgers}}
-   <li>{{burger_name}}</li>
+    {{#unless devoured}}
+     <li>{{name}}</li>
+    <button id="devourMe">Devour Me!</button>
+    {{/unless}}
   {{/each}}
 </ul>
 
@@ -13,13 +16,12 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-       <li>{{burger_name}}</li>
-
-     {{/if}}
+     <li>{{name}}</li> 
+    {{/if}}
   {{/each}}
 </ul>
 
-<h2>Create a Burger</h2>
+<h2>Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
@@ -29,5 +31,3 @@
 
   <button type="submit">Add Burger</button>
 </form>
-
-{{!-- need to create a button to cha ge devoured state --}}
